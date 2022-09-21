@@ -140,6 +140,28 @@ if (isset($_POST['Total'])) {
         'TotalBayar' => hitungTotalBayar($_POST['KelasPenumpang'], $_POST['JumlahPenumpang'], $_POST['JumlahPenumpangLansia'])
     ];
 
+    $berkas = "data/data.json";
+    $dataJson = json_encode($dataPesanan, JSON_PRETTY_PRINT);
+
+    if (file_put_contents($berkas, $dataJson)) {
+        echo '
+            <div class="m-5 fixed-top alert alert-success alert-dismissible fade show" role="alert">
+                Data Berhasil Disimpan!
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        ';
+    } else {
+        echo '
+            <div class="m-5 fixed-top alert alert-warning alert-dismissible fade show" role="alert">
+                Data Gagal Disimpan!
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        ';
+    }
+
+    $dataJson = file_get_contents($berkas);
+    $dataPesanan = json_decode($dataJson, true);
+
     echo "
         <script>
             document.getElementById('InputNamaLengkap').value = '$dataPesanan[NamaLengkap]';
@@ -184,39 +206,39 @@ if (isset($_POST['Total'])) {
                     echo '
                         <div class="row mb-3">
                             <div class="col-4"><label class="form-label" for="InputNamaLengkap">Nama Lengkap</label></div>
-                            <div class="col-8"><input class="form-control" id="InputNamaLengkap" value="' . $dataPesanan['NamaLengkap'] . '" disabled></div>
+                            <div class="col-8">: ' . $dataPesanan['NamaLengkap'] . '</div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-4"><label class="form-label" for="InputNomorID">Nomor Identitas</label></div>
-                            <div class="col-8"><input class="form-control" id="InputNomorID" value="' . $dataPesanan['NomorIdentitas'] . '" disabled></div>
+                            <div class="col-8">: ' . $dataPesanan['NomorIdentitas'] . '</div>
                         </div>   
                         <div class="row mb-3">
                             <div class="col-4"><label class="form-label" for="InputNomorHP">Nomor HP</label></div>
-                            <div class="col-8"><input class="form-control" id="InputNomorHP" value="' . $dataPesanan['NomorHP'] . '" disabled></div>
+                            <div class="col-8">: ' . $dataPesanan['NomorHP'] . '</div>
                         </div>     
                         <div class="row mb-3">
                             <div class="col-4"><label class="form-label" for="InputKelasPenumpang">Kelas Penumpang</label></div>
-                            <div class="col-8"><input class="form-control" id="InputKelasPenumpang" value="' . $dataPesanan['KelasPenumpang'] . '" disabled></div>
+                            <div class="col-8">: ' . $dataPesanan['KelasPenumpang'] . '</div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-4"><label class="form-label" for="InputJadwal">Jadwal Berangkat</label></div>
-                            <div class="col-8"><input class="form-control" id="InputJadwal" value="' . $dataPesanan['JadwalBerangkat'] . '" disabled></div>
+                            <div class="col-8">: ' . $dataPesanan['JadwalBerangkat'] . '</div>
                         </div>              
                         <div class="row mb-3">
                             <div class="col-4"><label class="form-label" for="InputJumlahPenumpang">Jumlah Penumpang</label></div>
-                            <div class="col-8"><input class="form-control" id="InputJumlahPenumpang" value="' . $dataPesanan['JumlahPenumpang'] . '" disabled></div>
+                            <div class="col-8">: ' . $dataPesanan['JumlahPenumpang'] . '</div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-4"><label class="form-label" for="InputJumlahPenumpangLansnia">Jumlah Penumpang Lansia</label></div>
-                            <div class="col-8"><input class="form-control" id="InputJumlahPenumpangLansnia" value="' . $dataPesanan['JumlahPenumpangLansia'] . '" disabled></div>
+                            <div class="col-8">: ' . $dataPesanan['JumlahPenumpangLansia'] . '</div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-4"><label class="form-label" for="HargaTiket">Harga Tiket</label></div>
-                            <div class="col-8"><input class="form-control" id="HargaTiket" value="' . $dataPesanan['HargaTiket'] . '" disabled></div>
+                            <div class="col-8">: ' . $dataPesanan['HargaTiket'] . '</div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-4"><label class="form-label" for="TotalBayar">Total Bayar</label></div>
-                            <div class="col-8"><input class="form-control" id="TotalBayar" value="' . $dataPesanan['TotalBayar'] . '" disabled></div>
+                            <div class="col-8">: ' . $dataPesanan['TotalBayar'] . '</div>
                         </div>                                 
                     ';
                 }
