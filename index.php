@@ -187,6 +187,10 @@ if (isset($_POST['Total'])) {
         'HargaTiket' => '',
         'TotalBayar' => ''
     ];
+
+    $dataJson = file_get_contents($berkas);
+    $dataPesananF = json_decode($dataJson, true);
+    $dataPesananF = $dataPesananF[0];
 }
 ?>
 
