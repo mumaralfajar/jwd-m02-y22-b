@@ -1,11 +1,13 @@
-{
-    "NamaLengkap": "Umaru",
-    "NomorIdentitas": "246134513463257234",
-    "NomorHP": "087773646396",
-    "KelasPenumpang": "Eksekutif",
-    "JadwalBerangkat": "2022-09-21",
-    "JumlahPenumpang": "6",
-    "JumlahPenumpangLansia": "3",
-    "HargaTiket": "200,000.00",
-    "TotalBayar": "1,710,000.00"
-}
+[
+    {
+        "NamaLengkap": "Umaru",
+        "NomorIdentitas": "246134513463257234",
+        "NomorHP": "087773646396",
+        "KelasPenumpang": "Eksekutif",
+        "JadwalBerangkat": "2022-09-22",
+        "JumlahPenumpang": "6",
+        "JumlahPenumpangLansia": "3",
+        "HargaTiket": "200000",
+        "TotalBayar": 1140000
+    }
+]

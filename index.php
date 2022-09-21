@@ -1,4 +1,5 @@
 <?php
+$berkas = "data/data.json";
 $kelasPenumpang = array("Ekonomi", "Bisnis", "Eksekutif");
 
 function hitungHarga($kelas): string
@@ -12,8 +13,9 @@ function hitungHarga($kelas): string
     } else {
         $harga = 0;
     }
-    return number_format($harga, 2);
+    return $harga;
 }
+
 ?>
 
 <!doctype html>
@@ -109,22 +111,14 @@ function hitungHarga($kelas): string
 </div>
 
 <?php
-function hitungTotalBayar($KelasPenumpang, $JumlahPenumpang, $JumlahPenumpangLansia): string
+function hitungTotalBayar($harga, $JumlahPenumpang, $JumlahPenumpangLansia)
 {
-    $harga = 0;
-    if ($KelasPenumpang == "Ekonomi") {
-        $harga = 100000;
-    } else if ($KelasPenumpang == "Bisnis") {
-        $harga = 200000;
-    } else if ($KelasPenumpang == "Eksekutif") {
-        $harga = 300000;
-    }
     if ($JumlahPenumpangLansia > 0) {
         $total = ($harga * $JumlahPenumpang) - ($harga * $JumlahPenumpangLansia * 0.1);
     } else {
         $total = $harga * $JumlahPenumpang;
     }
-    return number_format($total, 2);
+    return $total;
 }
 
 if (isset($_POST['Total'])) {
@@ -137,11 +131,11 @@ if (isset($_POST['Total'])) {
         'JumlahPenumpang' => $_POST['JumlahPenumpang'],
         'JumlahPenumpangLansia' => $_POST['JumlahPenumpangLansia'],
         'HargaTiket' => hitungHarga($_POST['KelasPenumpang']),
-        'TotalBayar' => hitungTotalBayar($_POST['KelasPenumpang'], $_POST['JumlahPenumpang'], $_POST['JumlahPenumpangLansia'])
+        'TotalBayar' => hitungTotalBayar(hitungHarga($_POST['KelasPenumpang']), $_POST['JumlahPenumpang'], $_POST['JumlahPenumpangLansia'])
     ];
 
-    $berkas = "data/data.json";
-    $dataJson = json_encode($dataPesanan, JSON_PRETTY_PRINT);
+    $dataPesananAll[] = $dataPesanan;
+    $dataJson = json_encode($dataPesananAll, JSON_PRETTY_PRINT);
 
     if (file_put_contents($berkas, $dataJson)) {
         echo '
@@ -160,7 +154,13 @@ if (isset($_POST['Total'])) {
     }
 
     $dataJson = file_get_contents($berkas);
-    $dataPesanan = json_decode($dataJson, true);
+    $dataPesananF = json_decode($dataJson, true);
+    $dataPesananF = $dataPesananF[0];
+
+    $dataPesananF['JadwalBerangkat'] = date('d F Y', strtotime($dataPesananF['JadwalBerangkat']));
+    $dataPesananF['HargaTiket'] = number_format($dataPesananF['HargaTiket'], 2, ',', '.');
+    $dataPesananF['TotalBayar'] = number_format($dataPesananF['TotalBayar'], 2, ',', '.');
+
 
     echo "
         <script>
@@ -171,8 +171,8 @@ if (isset($_POST['Total'])) {
             document.getElementById('InputJadwal').value = '$dataPesanan[JadwalBerangkat]';
             document.getElementById('InputJumlahPenumpang').value = '$dataPesanan[JumlahPenumpang]';
             document.getElementById('InputJumlahPenumpangLansnia').value = '$dataPesanan[JumlahPenumpangLansia]';
-            document.getElementById('HargaTiket').value = 'Rp. $dataPesanan[HargaTiket]';
-            document.getElementById('TotalBayar').value = 'Rp. $dataPesanan[TotalBayar]';
+            document.getElementById('HargaTiket').value = 'Rp. $dataPesananF[HargaTiket]';
+            document.getElementById('TotalBayar').value = 'Rp. $dataPesananF[TotalBayar]';
         </script>
     ";
 } else {
@@ -206,39 +206,39 @@ if (isset($_POST['Total'])) {
                     echo '
                         <div class="row mb-3">
                             <div class="col-4"><label class="form-label" for="InputNamaLengkap">Nama Lengkap</label></div>
-                            <div class="col-8">: ' . $dataPesanan['NamaLengkap'] . '</div>
+                            <div class="col-8">: ' . $dataPesananF['NamaLengkap'] . '</div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-4"><label class="form-label" for="InputNomorID">Nomor Identitas</label></div>
-                            <div class="col-8">: ' . $dataPesanan['NomorIdentitas'] . '</div>
+                            <div class="col-8">: ' . $dataPesananF['NomorIdentitas'] . '</div>
                         </div>   
                         <div class="row mb-3">
                             <div class="col-4"><label class="form-label" for="InputNomorHP">Nomor HP</label></div>
-                            <div class="col-8">: ' . $dataPesanan['NomorHP'] . '</div>
+                            <div class="col-8">: ' . $dataPesananF['NomorHP'] . '</div>
                         </div>     
                         <div class="row mb-3">
                             <div class="col-4"><label class="form-label" for="InputKelasPenumpang">Kelas Penumpang</label></div>
-                            <div class="col-8">: ' . $dataPesanan['KelasPenumpang'] . '</div>
+                            <div class="col-8">: ' . $dataPesananF['KelasPenumpang'] . '</div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-4"><label class="form-label" for="InputJadwal">Jadwal Berangkat</label></div>
-                            <div class="col-8">: ' . $dataPesanan['JadwalBerangkat'] . '</div>
+                            <div class="col-8">: ' . $dataPesananF['JadwalBerangkat'] . '</div>
                         </div>              
                         <div class="row mb-3">
                             <div class="col-4"><label class="form-label" for="InputJumlahPenumpang">Jumlah Penumpang</label></div>
-                            <div class="col-8">: ' . $dataPesanan['JumlahPenumpang'] . '</div>
+                            <div class="col-8">: ' . $dataPesananF['JumlahPenumpang'] . ' Penumpang</div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-4"><label class="form-label" for="InputJumlahPenumpangLansnia">Jumlah Penumpang Lansia</label></div>
-                            <div class="col-8">: ' . $dataPesanan['JumlahPenumpangLansia'] . '</div>
+                            <div class="col-8">: ' . $dataPesananF['JumlahPenumpangLansia'] . ' Penumpang Lansia</div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-4"><label class="form-label" for="HargaTiket">Harga Tiket</label></div>
-                            <div class="col-8">: ' . $dataPesanan['HargaTiket'] . '</div>
+                            <div class="col-8">: Rp. ' . $dataPesananF['HargaTiket'] . '</div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-4"><label class="form-label" for="TotalBayar">Total Bayar</label></div>
-                            <div class="col-8">: ' . $dataPesanan['TotalBayar'] . '</div>
+                            <div class="col-8">: Rp. ' . $dataPesananF['TotalBayar'] . '</div>
                         </div>                                 
                     ';
                 }

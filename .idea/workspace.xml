@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4abdd307-252f-4fc3-b401-dc216f87cb59" name="Changes" comment="create README.md">
-      <change afterPath="$PROJECT_DIR$/data/data.json" afterDir="false" />
+    <list default="true" id="4abdd307-252f-4fc3-b401-dc216f87cb59" name="Changes" comment="create JSON data from input">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/data.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +59,8 @@
       <workItem from="1663668435301" duration="63000" />
       <workItem from="1663668594497" duration="1305000" />
       <workItem from="1663727276751" duration="2867000" />
-      <workItem from="1663742368124" duration="2228000" />
+      <workItem from="1663742368124" duration="4148000" />
+      <workItem from="1663798915525" duration="1920000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1663673727192</created>
@@ -75,7 +76,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663728805314</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="create JSON data from input">
+      <created>1663744646699</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1663744646699</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -95,6 +103,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <MESSAGE value="create README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="create README.md" />
+    <MESSAGE value="create JSON data from input" />
+    <option name="LAST_COMMIT_MESSAGE" value="create JSON data from input" />
   </component>
 </project>
