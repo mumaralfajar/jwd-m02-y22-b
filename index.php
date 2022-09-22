@@ -243,7 +243,15 @@ if (isset($_POST['Total'])) {
                         <div class="row mb-3">
                             <div class="col-4"><label class="form-label" for="TotalBayar">Total Bayar</label></div>
                             <div class="col-8">: Rp. ' . $dataPesananF['TotalBayar'] . '</div>
-                        </div>                                 
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col">
+                                <img class="img-fluid rounded" src="img/' . $dataPesanan['KelasPenumpang'] . '.jpg" alt="Kelas Penumpang">
+                            </div>  
+                            <div class="col">
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' . $dataPesananF['NomorIdentitas'] . '" alt="QR Code">
+                            </div>
+                        </div>                            
                     ';
                 }
                 ?>

@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4abdd307-252f-4fc3-b401-dc216f87cb59" name="Changes" comment="adding read from JSON file and DRYing func hitungTotalBayar">
+    <list default="true" id="4abdd307-252f-4fc3-b401-dc216f87cb59" name="Changes" comment="fix possible undefined variable">
+      <change afterPath="$PROJECT_DIR$/img/Bisnis.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/Ekonomi.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/Eksekutif.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,17 +36,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/laragon/www/form-pemesanan/img",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\form-pemesanan\img" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -59,6 +69,10 @@
       <workItem from="1663727276751" duration="2867000" />
       <workItem from="1663742368124" duration="4148000" />
       <workItem from="1663798915525" duration="2457000" />
+      <workItem from="1663802100577" duration="662000" />
+      <workItem from="1663803635967" duration="1329000" />
+      <workItem from="1663804977983" duration="102000" />
+      <workItem from="1663817857533" duration="1078000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1663673727192</created>
@@ -88,7 +102,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663801249811</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fix possible undefined variable">
+      <created>1663802281147</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1663802281147</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -110,6 +131,7 @@
     <MESSAGE value="create README.md" />
     <MESSAGE value="create JSON data from input" />
     <MESSAGE value="adding read from JSON file and DRYing func hitungTotalBayar" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding read from JSON file and DRYing func hitungTotalBayar" />
+    <MESSAGE value="fix possible undefined variable" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix possible undefined variable" />
   </component>
 </project>
