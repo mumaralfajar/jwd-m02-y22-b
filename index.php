@@ -17,7 +17,6 @@ function hitungHarga($kelas): string
     }
     return $harga;
 }
-
 ?>
 
 <!doctype html>
@@ -34,13 +33,11 @@ function hitungHarga($kelas): string
         <h1 class="display-5 mb-4">Form Pemesanan</h1>
         <div class="row mb-3">
             <div class="col-2"><label for="InputNamaLengkap" class="form-label">Nama Lengkap</label></div>
-            <div class="col-10"><input type="text" class="form-control" id="InputNamaLengkap" name="NamaLengkap"
-                                       required></div>
+            <div class="col-10"><input type="text" class="form-control" id="InputNamaLengkap" name="NamaLengkap" required></div>
         </div>
         <div class="row mb-3">
             <div class="col-2"><label for="InputNomorID" class="form-label">Nomor Identitas</label></div>
-            <div class="col-10"><input type="text" class="form-control" id="InputNomorID" name="NomorIdentitas"
-                                       required></div>
+            <div class="col-10"><input type="text" class="form-control" id="InputNomorID" name="NomorIdentitas" required></div>
         </div>
         <div class="row mb-3">
             <div class="col-2"><label for="InputNomorHP" class="form-label">No. HP</label></div>
@@ -62,8 +59,7 @@ function hitungHarga($kelas): string
         </div>
         <div class="row mb-3">
             <div class="col-2"><label for="InputJadwal" class="form-label">Jadwal Keberangkatan</label></div>
-            <div class="col-10"><input type="date" class="form-control" id="InputJadwal" name="JadwalBerangkat"
-                                       required></div>
+            <div class="col-10"><input type="date" class="form-control" id="InputJadwal" name="JadwalBerangkat" required></div>
         </div>
         <div class="row mb-3">
             <div class="col-2"><label for="InputJumlahPenumpang" class="form-label">Jumlah Penumpang</label></div>
@@ -168,7 +164,7 @@ if (isset($_POST['Total'])) {
     $dataPesananF['HargaTiket'] = number_format($dataPesananF['HargaTiket'], 2, ',', '.');
     $dataPesananF['TotalBayar'] = number_format($dataPesananF['TotalBayar'], 2, ',', '.');
 
-
+    //mempertahankan isian pada form
     echo "
         <script>
             document.getElementById('InputNamaLengkap').value = '$dataPesanan[NamaLengkap]';
@@ -198,7 +194,6 @@ if (isset($_POST['Total'])) {
 
     $dataJson = file_get_contents($berkas);
     $dataPesananF = json_decode($dataJson, true);
-    $dataPesananF = $dataPesananF[0];
 }
 ?>
 
@@ -271,7 +266,18 @@ if (isset($_POST['Total'])) {
         </div>
     </div>
 </div>
+<!--script agar jumlah penumpang lansia tidak melebihi jumlah penumpang-->
+<script>
+    const elX = document.getElementById("InputJumlahPenumpang");
+    const elY = document.getElementById("InputJumlahPenumpangLansnia");
 
+    function limit() {
+        elY.value=Math.min(Math.round(elX.value*.9),elY.value);
+    }
+
+    elX.onchange=limit;
+    elY.onchange=limit;
+</script>
 <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
