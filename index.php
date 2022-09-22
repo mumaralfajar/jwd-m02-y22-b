@@ -1,7 +1,9 @@
 <?php
+//pendefinisian variable berkas dan kelas penumpang
 $berkas = "data/data.json";
 $kelasPenumpang = array("Ekonomi", "Bisnis", "Eksekutif");
 
+//fungsi untuk menghitung harga berdasarkan kelas
 function hitungHarga($kelas): string
 {
     if ($kelas == "Ekonomi") {
@@ -50,6 +52,7 @@ function hitungHarga($kelas): string
                 <select class="form-select" id="InputKelasPenumpang" name="KelasPenumpang" required>
                     <option value="" disabled selected>Pilih kelas penumpang</option>
                     <?php
+                    //menampilkan pilihan kelas penumpang
                     foreach ($kelasPenumpang as $kelas) {
                         echo "<option value='$kelas'>$kelas</option>";
                     }
@@ -65,7 +68,7 @@ function hitungHarga($kelas): string
         <div class="row mb-3">
             <div class="col-2"><label for="InputJumlahPenumpang" class="form-label">Jumlah Penumpang</label></div>
             <div class="col-10">
-                <input type="number" class="form-control" id="InputJumlahPenumpang" name="JumlahPenumpang" required>
+                <input type="number" class="form-control" id="InputJumlahPenumpang" name="JumlahPenumpang" min="0" required>
                 <span class="form-text">Bukan lansia (usia < 60)</span>
             </div>
         </div>
@@ -77,7 +80,7 @@ function hitungHarga($kelas): string
             </div>
             <div class="col-10">
                 <input type="number" class="form-control" id="InputJumlahPenumpangLansnia" name="JumlahPenumpangLansia"
-                       required>
+                       min="0" required>
                 <span class="form-text">Usia 60 tahun ke atas</span>
             </div>
         </div>
@@ -111,6 +114,7 @@ function hitungHarga($kelas): string
 </div>
 
 <?php
+//fungsi untuk menghitung total harga tiket
 function hitungTotalBayar($harga, $JumlahPenumpang, $JumlahPenumpangLansia)
 {
     if ($JumlahPenumpangLansia > 0) {
@@ -121,6 +125,7 @@ function hitungTotalBayar($harga, $JumlahPenumpang, $JumlahPenumpangLansia)
     return $total;
 }
 
+//pendefinisian varabel $dataPesanan saat tombol 'Total' ditekan
 if (isset($_POST['Total'])) {
     $dataPesanan = [
         'NamaLengkap' => $_POST['NamaLengkap'],
@@ -134,9 +139,10 @@ if (isset($_POST['Total'])) {
         'TotalBayar' => hitungTotalBayar(hitungHarga($_POST['KelasPenumpang']), $_POST['JumlahPenumpang'], $_POST['JumlahPenumpangLansia'])
     ];
 
-    $dataPesananAll[] = $dataPesanan;
-    $dataJson = json_encode($dataPesananAll, JSON_PRETTY_PRINT);
+    //mengubah array ke dala mbentuk JSON
+    $dataJson = json_encode($dataPesanan, JSON_PRETTY_PRINT);
 
+    //menyimpan data JSON ke dalam file
     if (file_put_contents($berkas, $dataJson)) {
         echo '
             <div class="m-5 fixed-top alert alert-success alert-dismissible fade show" role="alert">
@@ -153,10 +159,11 @@ if (isset($_POST['Total'])) {
         ';
     }
 
+    //mengambil data JSON dari file dan menyimpannya ke dalam variable $dataPesananF
     $dataJson = file_get_contents($berkas);
     $dataPesananF = json_decode($dataJson, true);
-    $dataPesananF = $dataPesananF[0];
 
+    //melakukan formatting untuk tangal, harga, dan total bayar
     $dataPesananF['JadwalBerangkat'] = date('d F Y', strtotime($dataPesananF['JadwalBerangkat']));
     $dataPesananF['HargaTiket'] = number_format($dataPesananF['HargaTiket'], 2, ',', '.');
     $dataPesananF['TotalBayar'] = number_format($dataPesananF['TotalBayar'], 2, ',', '.');
@@ -176,6 +183,7 @@ if (isset($_POST['Total'])) {
         </script>
     ";
 } else {
+    //mengisi data kosong saat tombol 'Total' belum ditekan untuk mengatasi undefined variable
     $dataPesanan = [
         'NamaLengkap' => '',
         'NomorIdentitas' => '',
@@ -204,6 +212,7 @@ if (isset($_POST['Total'])) {
             </div>
             <div class="modal-body">
                 <?php
+                //melakukan pengecekan apakah data sudah terisi atau belum
                 if ($dataPesanan['NamaLengkap'] == '') {
                     echo '<div class="modal-body text-center">Isi Form Terlebih Dahulu!</div>';
                 } else {
