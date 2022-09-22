@@ -5,12 +5,12 @@
 <img alt="PHP" src="https://img.shields.io/badge/php-%23777BB4.svg?&style=for-the-badge&logo=php&logoColor=white"/>
 <img alt="Bootstrap" src="https://img.shields.io/badge/bootstrap%20-%23563D7C.svg?&style=for-the-badge&logo=bootstrap&logoColor=white"/>
 
-Form pemesanan ini dibuat sebagai latihan untuk skema junior web developer Program ini dibuat menggunakan bahasa pemrograman HTML (Hypertext Markup Language), CSS (Cascading Style Sheet) dan PHP (Hypertext Preprocessor) menggunakan Framework Bootstrap.
+Form pemesanan ini dibuat sebagai tugas praktek untuk skema junior web developer Program ini dibuat menggunakan bahasa pemrograman HTML (Hypertext Markup Language), CSS (Cascading Style Sheet) dan PHP (Hypertext Preprocessor) menggunakan Framework Bootstrap.
 
 ## Struktur Folder
 
 ```bash
-📦ProgramHotel
+📦form-pemesanan
  ┣ 📂css
  ┃ ┣ 📜bootstrap-grid.css
  ┃ ┣ 📜bootstrap-grid.css.map
