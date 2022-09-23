@@ -26,8 +26,51 @@ function hitungHarga($kelas): string
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Form Pemesanan</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
 </head>
 <body>
+<div class="container shadow mt-4 mb-4 p-4 rounded">
+    <div class="row">
+        <div class="col">
+            <h1 class="display-3 text-center">Ekonomi</h1>
+            <div class="image-container rounded" id="gEkonomi">
+                <img src="img/bus-ekonomi.jpg" alt="logo" class="img-fluid rounded shadow mb-2 image-container">
+            </div>
+        </div>
+        <div class="col">
+            <h1 class="display-3 text-center">Bisnis</h1>
+            <div class="image-container rounded" id="gBisnis">
+                <img src="img/bus-bisnis.jpg" alt="logo" class="img-fluid rounded shadow mb-2 image-container">
+            </div>
+        </div>
+        <div class="col">
+            <h1 class="display-3 text-center">Eksekutif</h1>
+            <div class="image-container rounded" id="gEksekutif">
+                <img src="img/bus-eksekutif.jpg" alt="logo" class="img-fluid rounded shadow mb-2">
+            </div>
+        </div>
+        <hr class="mt-4">
+        <h1>Daftar Harga Tiket</h1>
+    <table class="table-striped m-4 col-5">
+        <thead>
+        <tr>
+            <th scope="col">Kelas</th>
+            <th scope="col">Harga</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php
+        foreach ($kelasPenumpang as $kelas) {
+            echo "<tr>";
+            echo "<td>$kelas</td>";
+            echo "<td>Rp. " . number_format(hitungHarga($kelas), 2, ',', '.') . "</td>";
+            echo "</tr>";
+        }
+        ?>
+        </tbody>
+    </table>
+    </div>
+</div>
 <div class="container">
     <form class="rounded shadow mt-4 mb-4 p-4" action="index.php" method="post" id="formPesanan">
         <h1 class="display-5 mb-4">Form Pemesanan</h1>
@@ -266,13 +309,13 @@ if (isset($_POST['Total'])) {
         </div>
     </div>
 </div>
-<!--script agar jumlah penumpang lansia tidak melebihi jumlah penumpang-->
+<!--script agar jumlah penumpang lansia tidak melebihi total penumpang-->
 <script>
     const elX = document.getElementById("InputJumlahPenumpang");
     const elY = document.getElementById("InputJumlahPenumpangLansnia");
 
     function limit() {
-        elY.value=Math.min(Math.round(elX.value*.9),elY.value);
+        elY.value=Math.min(elX.value,elY.value);
     }
 
     elX.onchange=limit;

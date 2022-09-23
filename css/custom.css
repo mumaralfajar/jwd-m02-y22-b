@@ -1,0 +1,24 @@
+#gEkonomi{
+    background-image: url(../img/Ekonomi.jpg);
+    background-size: cover;
+}
+
+#gBisnis{
+    background-image: url(../img/Bisnis.jpg);
+    background-size: cover;
+}
+
+#gEksekutif{
+    background-image: url(../img/Eksekutif.jpg);
+    background-size: cover;
+}
+
+img{
+    width:100%;
+    display:block;
+    transition: opacity .3s ease;
+}
+
+.image-container:hover img{
+    opacity: 0;
+}
