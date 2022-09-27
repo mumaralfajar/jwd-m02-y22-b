@@ -15,6 +15,7 @@ array_multisort(array_column($data, 4), SORT_ASC, $data);
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="https://www.freeiconspng.com/uploads/bus-icon-10.png">
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <title>Data Pesanan</title>
 </head>
@@ -23,7 +24,7 @@ array_multisort(array_column($data, 4), SORT_ASC, $data);
 <?php include "../layout/navbar.php"; ?>
 <br>
 <br>
-<div class="container-fluid shadow mt-4 mb-4 p-4 rounded">
+<div class="container shadow mt-4 mb-4 p-4 rounded">
     <!-- Menampilkan Tabel Data Pesanan -->
     <table class="table table-responsive text-center">
         <caption class="caption-top display-5 mb-1 p-0 text-body">Data Pesanan</caption>
