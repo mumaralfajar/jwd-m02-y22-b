@@ -57,7 +57,7 @@ Form pemesanan ini dibuat sebagai tugas praktek untuk skema junior web developer
  ┃ ┣ 📜bootstrap.js.map
  ┃ ┣ 📜bootstrap.min.js
  ┃ ┗ 📜bootstrap.min.js.map
- ┣ 📜index.php
+ ┣ 📜form.php
  ┗ 📜README.md
 ```
 
@@ -85,7 +85,7 @@ Form pemesanan ini dibuat sebagai tugas praktek untuk skema junior web developer
    > *[nama-folder].test* (Laragon)
 
 ## Screenshot
-<img src="https://i.ibb.co/XzF6wHg/Opera-Snapshot-2022-09-21-095011-localhost.png">
+<img src="https://i.ibb.co/XzF6wHg/Opera-Snapshot-2022-09-21-095011-localhost.png" alt="gambar form">
 
 ## Credits
 

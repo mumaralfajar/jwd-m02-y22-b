@@ -22,3 +22,13 @@ img{
 .image-container:hover img{
     opacity: 0;
 }
+
+#InputJadwal::-webkit-calendar-picker-indicator {
+    padding-left: 740px;
+}
+
+.table td.fit,
+.table th.fit {
+    white-space: nowrap;
+    width: 1%;
+}
