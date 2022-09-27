@@ -1,10 +1,10 @@
 <?php
 //membaca berkas yang berupa JSON
-$berkas = "data/data.json";
+$berkas = "../data/data.json";
 $dataJson = file_get_contents($berkas);
 $dataPesananAll = json_decode($dataJson, true);
 
-include("utils\utils.php");
+include("..\utils\utils.php");
 
 //fungsi untuk menghitung total harga tiket
 function hitungTotalBayar($harga, $JumlahPenumpang, $JumlahPenumpangLansia)
@@ -25,14 +25,14 @@ function hitungTotalBayar($harga, $JumlahPenumpang, $JumlahPenumpangLansia)
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Form Pemesanan</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
     <link rel="icon" href="https://www.freeiconspng.com/uploads/bus-icon-10.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
 <!-- Menampilkan Navigation Bar -->
-<?php include "layout/navbar.php"; ?>
+<?php include "../layout/navbar.php"; ?>
 <br>
 <br>
 <div class="container">
@@ -181,7 +181,7 @@ if ($pesanTiket || $hitungTotal) {
 }
 ?>
 
-<script src="js/script.js"></script>
-<script src="js/bootstrap.bundle.min.js"></script>
+<script src="../js/script.js"></script>
+<script src="../js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

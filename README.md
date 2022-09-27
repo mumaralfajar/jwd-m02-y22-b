@@ -60,9 +60,11 @@ Aplikasi tiket bus AKAP ini dibuat sebagai tugas praktek untuk skema junior web 
  ┃ ┗ 📜script.js
  ┣ 📂layout
  ┃ ┗ 📜navbar.js
+ ┣ 📂pages
+ ┃ ┣ 📜datas.php
+ ┃ ┗ 📜form.php
  ┣ 📂utils
  ┃ ┗ 📜utils.php
- ┣ 📜form.php
  ┣ 📜index.php
  ┗ 📜README.md
 ```
@@ -91,8 +93,9 @@ Aplikasi tiket bus AKAP ini dibuat sebagai tugas praktek untuk skema junior web 
    > *[nama-folder].test* (Laragon)
 
 ## Screenshots
-<img src="https://i.ibb.co/P9SgLwq/Opera-Snapshot-2022-09-27-142046-form-pemesanan-test.png" alt="gambar form">
-<img src="https://i.ibb.co/XzF6wHg/Opera-Snapshot-2022-09-21-095011-localhost.png" alt="gambar form">
+<img src="https://i.ibb.co/wLwdGk1/Opera-Snapshot-2022-09-27-142046-form-pemesanan-test.png" alt="gambar halaman utama">
+<img src="https://i.ibb.co/XY04M1P/Opera-Snapshot-2022-09-27-165027-form-pemesanan-test.png" alt="gambar halaman form">
+<img src="https://i.ibb.co/NrwsGFv/Opera-Snapshot-2022-09-27-165014-form-pemesanan-test.png" alt="gambar halaman tabel data">
 
 ## Credits
 

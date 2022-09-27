@@ -11,7 +11,10 @@ echo '
                     <a class="nav-link" href="../index.php">Beranda</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../form.php">Pesan Tiket</a>
+                    <a class="nav-link" href="../pages/form.php">Pesan Tiket</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../pages/datas.php">Data Pesanan</a>
                 </li>
             </ul>
         </div>

@@ -21,19 +21,19 @@ include("utils\utils.php");
 <div class="container shadow mt-4 mb-4 p-4 rounded">
     <div class="row">
         <div class="col">
-            <h1 class="display-3 text-center"><b>Ekonomi</b></h1>
+            <h1 class="display-3 text-center"><b>EKONOMI</b></h1>
             <div class="image-container rounded" id="gEkonomi">
                 <img src="img/bus-ekonomi.jpg" alt="logo" class="img-fluid rounded shadow mb-2 image-container">
             </div>
         </div>
         <div class="col">
-            <h1 class="display-3 text-center"><b>Bisnis</b></h1>
+            <h1 class="display-3 text-center"><b>BISNIS</b></h1>
             <div class="image-container rounded" id="gBisnis">
                 <img src="img/bus-bisnis.jpg" alt="logo" class="img-fluid rounded shadow mb-2 image-container">
             </div>
         </div>
         <div class="col">
-            <h1 class="display-3 text-center"><b>Eksekutif</b></h1>
+            <h1 class="display-3 text-center"><b>EKSEKUTIF</b></h1>
             <div class="image-container rounded" id="gEksekutif">
                 <img src="img/bus-eksekutif.jpg" alt="logo" class="img-fluid rounded shadow mb-2">
             </div>
