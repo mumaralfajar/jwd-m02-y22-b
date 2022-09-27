@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4abdd307-252f-4fc3-b401-dc216f87cb59" name="Changes" comment="fix banyak dah">
-      <change afterPath="$PROJECT_DIR$/form.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/layout/navbar.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/utils.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/form-pemesanan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/form-pemesanan.iml" afterDir="false" />
+    <list default="true" id="4abdd307-252f-4fc3-b401-dc216f87cb59" name="Changes" comment="v2.0">
+      <change beforePath="$PROJECT_DIR$/.idea/form-pemesanan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tiket-bus-akap.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/bus-ekonomi.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/bus-ekonomi.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/bus-eksekutif.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/bus-eksekutif.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form.php" beforeDir="false" afterPath="$PROJECT_DIR$/form.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/utils.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/utils.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +85,7 @@
       <workItem from="1664084140927" duration="9502000" />
       <workItem from="1664144761666" duration="17427000" />
       <workItem from="1664177700350" duration="18505000" />
-      <workItem from="1664246223173" duration="6499000" />
+      <workItem from="1664246223173" duration="10398000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1663673727192</created>
@@ -161,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663974033879</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="v2.0">
+      <created>1664259077546</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1664259077546</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,6 +192,8 @@
     <MESSAGE value="add comments, DRYing, and fix minus value" />
     <MESSAGE value="fix penumpang lansia exceed total penumpang" />
     <MESSAGE value="add bus and cabin images, price table, and fix passenger input" />
-    <option name="LAST_COMMIT_MESSAGE" value="add bus and cabin images, price table, and fix passenger input" />
+    <MESSAGE value="fix banyak dah" />
+    <MESSAGE value="v2.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="v2.0" />
   </component>
 </project>

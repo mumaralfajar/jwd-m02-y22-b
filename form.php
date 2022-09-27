@@ -1,5 +1,5 @@
 <?php
-//pendefinisian variable berkas dan membaca berkas yang berupa JSON
+//membaca berkas yang berupa JSON
 $berkas = "data/data.json";
 $dataJson = file_get_contents($berkas);
 $dataPesananAll = json_decode($dataJson, true);
@@ -16,6 +16,7 @@ function hitungTotalBayar($harga, $JumlahPenumpang, $JumlahPenumpangLansia)
     }
     return $total;
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +31,7 @@ function hitungTotalBayar($harga, $JumlahPenumpang, $JumlahPenumpangLansia)
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
+<!-- Menampilkan Navigation Bar -->
 <?php include "layout/navbar.php"; ?>
 <br>
 <br>
@@ -38,15 +40,18 @@ function hitungTotalBayar($harga, $JumlahPenumpang, $JumlahPenumpangLansia)
         <h1 class="display-5 mb-4">Form Pemesanan</h1>
         <div class="row mb-3">
             <div class="col-2"><label for="InputNamaLengkap" class="form-label">Nama Lengkap</label></div>
-            <div class="col-10"><input type="text" class="form-control" id="InputNamaLengkap" name="NamaLengkap" value="" required></div>
+            <div class="col-10"><input type="text" class="form-control" id="InputNamaLengkap" name="NamaLengkap"
+                                       value="" required></div>
         </div>
         <div class="row mb-3">
             <div class="col-2"><label for="InputNomorID" class="form-label">Nomor Identitas</label></div>
-            <div class="col-10"><input type="text" class="form-control" id="InputNomorID" name="NomorIdentitas" value="" required></div>
+            <div class="col-10"><input type="text" class="form-control" id="InputNomorID" name="NomorIdentitas" value=""
+                                       required></div>
         </div>
         <div class="row mb-3">
             <div class="col-2"><label for="InputNomorHP" class="form-label">No. HP</label></div>
-            <div class="col-10"><input type="text" class="form-control" id="InputNomorHP" name="NomorHP" value="" required></div>
+            <div class="col-10"><input type="text" class="form-control" id="InputNomorHP" name="NomorHP" value=""
+                                       required></div>
         </div>
         <div class="row mb-3">
             <div class="col-2"><label for="InputKelasPenumpang" class="form-label">Kelas Penumpang</label></div>
@@ -68,12 +73,14 @@ function hitungTotalBayar($harga, $JumlahPenumpang, $JumlahPenumpangLansia)
         </div>
         <div class="row mb-3">
             <div class="col-2"><label for="InputJadwal" class="form-label">Jadwal Keberangkatan</label></div>
-            <div class="col-10"><input type="date" class="form-control" id="InputJadwal" name="JadwalBerangkat" value="" required></div>
+            <div class="col-10"><input type="date" class="form-control" id="InputJadwal" name="JadwalBerangkat" value=""
+                                       required></div>
         </div>
         <div class="row mb-3">
             <div class="col-2"><label for="InputJumlahPenumpang" class="form-label">Jumlah Penumpang</label></div>
             <div class="col-10">
-                <input type="number" class="form-control" id="InputJumlahPenumpang" name="JumlahPenumpang" min="0" value="" required>
+                <input type="number" class="form-control" id="InputJumlahPenumpang" name="JumlahPenumpang" min="0"
+                       value="" required>
                 <span class="form-text">Bukan lansia (usia < 60)</span>
             </div>
         </div>
@@ -118,6 +125,7 @@ function hitungTotalBayar($harga, $JumlahPenumpang, $JumlahPenumpangLansia)
 </div>
 
 <?php
+//pendefinisian variabel-variabel ketika tombol Hitung Total atau Pesan Tiket diklik
 $pesanTiket = isset($_POST['PesanTiket']);
 $hitungTotal = isset($_POST['Total']);
 if ($pesanTiket || $hitungTotal) {
@@ -131,20 +139,30 @@ if ($pesanTiket || $hitungTotal) {
     $hargaTiket = hitungHarga($_POST['KelasPenumpang']);
     $totalBayar = hitungTotalBayar(hitungHarga($_POST['KelasPenumpang']), $_POST['JumlahPenumpang'], $_POST['JumlahPenumpangLansia']);
 
+    //pendefinisian array data pesanan yang berisi hasil inputan form
     if ($pesanTiket) {
         $dataPesanan = [$namaLengkap, $nomorIdentitas, $nomorHP, $kelasPenumpang, $jadwalBerangkat, $jumlahPenumpang, $jumlahPenumpangLansia, $hargaTiket, $totalBayar];
         $dataPesananAll[] = $dataPesanan;
         $dataJson = json_encode($dataPesananAll, JSON_PRETTY_PRINT);
 
+        //menyimpan data pesanan ke file json
         if (file_put_contents($berkas, $dataJson)) {
             echo '
-            <div class="m-5 fixed-top alert alert-success alert-dismissible fade show " role="alert">
-                Data Berhasil Disimpan!
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        ';
+                <div class="m-5 fixed-top alert alert-success alert-dismissible fade show " role="alert">
+                    Data Berhasil Disimpan!
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            ';
+        } else {
+            echo '
+                <div class="m-5 fixed-top alert alert-danger alert-dismissible fade show " role="alert">
+                    Data Gagal Disimpan!
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            ';
         }
     } else {
+        //menampilkan total bayar dengan mempertahankan data yang sudah diinputkan pada form
         echo "
         <script>
             window.scrollTo(0, document.body.scrollHeight);

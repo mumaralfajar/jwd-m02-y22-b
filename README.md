@@ -1,16 +1,15 @@
-# Form Pemesanan
-
-<img alt="HTML5" src="https://img.shields.io/badge/html5%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white"/> 
+# Tiket Bus AKAP
+<img alt="HTML5" src="https://img.shields.io/badge/html5%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white"/>
 <img alt="CSS3" src="https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white"/>
 <img alt="PHP" src="https://img.shields.io/badge/php-%23777BB4.svg?&style=for-the-badge&logo=php&logoColor=white"/>
 <img alt="Bootstrap" src="https://img.shields.io/badge/bootstrap%20-%23563D7C.svg?&style=for-the-badge&logo=bootstrap&logoColor=white"/>
 
-Form pemesanan ini dibuat sebagai tugas praktek untuk skema junior web developer Program ini dibuat menggunakan bahasa pemrograman HTML (Hypertext Markup Language), CSS (Cascading Style Sheet) dan PHP (Hypertext Preprocessor) menggunakan Framework Bootstrap.
+Aplikasi tiket bus AKAP ini dibuat sebagai tugas praktek untuk skema junior web developer Program ini dibuat menggunakan bahasa pemrograman HTML (Hypertext Markup Language), CSS (Cascading Style Sheet) dan PHP (Hypertext Preprocessor) menggunakan Framework Bootstrap.
 
 ## Struktur Folder
 
 ```bash
-📦form-pemesanan
+📦tiket-bus-akap
  ┣ 📂css
  ┃ ┣ 📜bootstrap-grid.css
  ┃ ┣ 📜bootstrap-grid.css.map
@@ -43,7 +42,8 @@ Form pemesanan ini dibuat sebagai tugas praktek untuk skema junior web developer
  ┃ ┣ 📜bootstrap.rtl.css
  ┃ ┣ 📜bootstrap.rtl.css.map
  ┃ ┣ 📜bootstrap.rtl.min.css
- ┃ ┗ 📜bootstrap.rtl.min.css.map
+ ┃ ┣ 📜bootstrap.rtl.min.css.map
+ ┃ ┗ 📜style.css
  ┣ 📂js
  ┃ ┣ 📜bootstrap.bundle.js
  ┃ ┣ 📜bootstrap.bundle.js.map
@@ -56,8 +56,14 @@ Form pemesanan ini dibuat sebagai tugas praktek untuk skema junior web developer
  ┃ ┣ 📜bootstrap.js
  ┃ ┣ 📜bootstrap.js.map
  ┃ ┣ 📜bootstrap.min.js
- ┃ ┗ 📜bootstrap.min.js.map
+ ┃ ┣ 📜bootstrap.min.js.map
+ ┃ ┗ 📜script.js
+ ┣ 📂layout
+ ┃ ┗ 📜navbar.js
+ ┣ 📂utils
+ ┃ ┗ 📜utils.php
  ┣ 📜form.php
+ ┣ 📜index.php
  ┗ 📜README.md
 ```
 
@@ -65,7 +71,7 @@ Form pemesanan ini dibuat sebagai tugas praktek untuk skema junior web developer
 
 * XAMPP/Laragon
 * PHP >= 7.0.0
-* Browser : Google Chrome, Mozilla Firefox, Opera
+* Browser : Google Chrome/Mozilla Firefox/Opera
 * Bootstrap >= 5.2.0
 
 ## Instalation
@@ -84,9 +90,10 @@ Form pemesanan ini dibuat sebagai tugas praktek untuk skema junior web developer
    > 
    > *[nama-folder].test* (Laragon)
 
-## Screenshot
+## Screenshots
+<img src="https://i.ibb.co/P9SgLwq/Opera-Snapshot-2022-09-27-142046-form-pemesanan-test.png" alt="gambar form">
 <img src="https://i.ibb.co/XzF6wHg/Opera-Snapshot-2022-09-21-095011-localhost.png" alt="gambar form">
 
 ## Credits
 
-Author: mumarual
+Author: Muhammad Umar Al Fajar

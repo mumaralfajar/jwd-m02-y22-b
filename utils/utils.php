@@ -1,4 +1,5 @@
 <?php
+//pendefinisian variabel untuk tipe kelas
 $tipeKelas = array("Ekonomi", "Bisnis", "Eksekutif");
 
 //fungsi untuk menentukan harga kelas
@@ -16,6 +17,7 @@ function hitungHarga($kelas): int
     return $harga;
 }
 
+//fungsi untuk menyaring data pemesanan tiket berdasarkan tipe kelas
 function filter_array($array,$term){
     $matches = array();
     foreach($array as $a){

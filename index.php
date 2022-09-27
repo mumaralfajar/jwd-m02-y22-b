@@ -14,6 +14,7 @@ include("utils\utils.php");
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
+<!-- Menampilkan Navigation Bar -->
 <?php include "layout/navbar.php"; ?>
 <br>
 <br>
@@ -50,6 +51,7 @@ include("utils\utils.php");
             </thead>
             <tbody>
             <?php
+            //menampilkan data kelas dan harga ke dalam tabel
             if (!empty($tipeKelas)) {
                 foreach ($tipeKelas as $kelas) {
                     echo "<tr>";
@@ -66,16 +68,17 @@ include("utils\utils.php");
             <canvas id="myChart"></canvas>
         </div>
         <script>
-            //get the data from data/data.json
             <?php
+            // Mengambil data dari data/data.json
             $data = file_get_contents("data/data.json");
             $data = json_decode($data, true);
             ?>
+            //membuat char untuk menampilkan data pemesanan tiket
             const ctx = document.getElementById("myChart");
             const myChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ["Jumlah Penjualan"],
+                    labels: ["Jumlah Penjualan Tiket"],
                     datasets: [
                         {
                             label: 'Ekonomi',
