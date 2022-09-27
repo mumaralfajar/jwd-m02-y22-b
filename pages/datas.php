@@ -2,10 +2,11 @@
 //decode data/data.json
 $data = file_get_contents('../data/data.json');
 $data = json_decode($data, true);
-//mengurutkna array berdasarkan tanggal
-usort($data, function ($a, $b) {
-    return strtotime($a[4]) - strtotime($b[4]);
-});
+//mengurutkan array berdasarkan tanggal
+array_multisort(array_column($data, 4), SORT_ASC, $data);
+//usort($data, function ($a, $b) {
+//    return strtotime($a[4]) - strtotime($b[4]);
+//});
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,10 +23,10 @@ usort($data, function ($a, $b) {
 <?php include "../layout/navbar.php"; ?>
 <br>
 <br>
-<div class="container shadow mt-4 mb-4 p-4 rounded">
-    <h1>Data Pesanan</h1>
+<div class="container-fluid shadow mt-4 mb-4 p-4 rounded">
     <!-- Menampilkan Tabel Data Pesanan -->
     <table class="table table-responsive text-center">
+        <caption class="caption-top display-5 mb-1 p-0 text-body">Data Pesanan</caption>
         <thead>
             <tr>
                 <th>No</th>
@@ -51,9 +52,9 @@ usort($data, function ($a, $b) {
                 echo "<td>$d[1]</td>";
                 echo "<td>$d[2]</td>";
                 echo "<td>$d[3]</td>";
-                echo "<td>$d[4]</td>";
-                echo "<td>$d[5]</td>";
-                echo "<td>$d[6]</td>";
+                echo "<td>" . date('d F Y', strtotime($d[4])) . "</td>";
+                echo "<td>$d[5] Orang</td>";
+                echo "<td>$d[6] Orang</td>";
                 echo "<td>Rp. " . number_format($d[7], 2, ',', '.') . "</td>";
                 echo "<td>Rp. " . number_format($d[8], 2, ',', '.') . "</td>";
                 echo "</tr>";
